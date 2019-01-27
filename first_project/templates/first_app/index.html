@@ -4,14 +4,39 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>First App</title>
+    <title>Level Two of Django :)</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="{% static "css/mystyle.css" %}" />
     <script src="main.js"></script>
 </head>
 <body>
-    <h1>Holla este es index.html! Y aquí va mi imagen</h1>
-    {{ insert_me }}
-    <img src="{% static "images/enero.jpg" %}" alt="Oh oh . La imagen no cargó :'v'">
+    <h1>Hola este es index.html! </h1
+
+    <h2>Aqui están los access Records</h2>
+
+    <div class="djangotwo">
+        {% if access_records%}
+        <table>
+            <thead>
+                <th>Sitios Web</th>
+                <th>Fecha de Acceso</th>
+            </thead>
+            {% for acc in access_records%}
+            <tr>
+                <td>
+                    {{ acc.name }}
+                </td>
+                <td>
+                    {{ acc.date }}
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+        {% else %}
+        <p>No se encontraron datos</p>
+        {% endif %}
+        
+
+    </div>
 </body>
 </html>
